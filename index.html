@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Data</title>
+    <script defer src="./data.js"></script>
+</head>
+
+<body>
+    <button id="fetchDataBtn">Fetch Data</button>
+    <div id="dataContainer"></div>
+
+    <script>
+        document.querySelector('#fetchDataBtn').addEventListener('click', async () => {
+            const response = await fetch('http://localhost:3000/data');
+            const data = await response.json();
+
+            const dataContainer = document.querySelector('#dataContainer');
+            dataContainer.innerHTML = data[0].name, null, 2;
+            console.log(data[0].name);
+        });
+    </script>
+</body>
+
+</html>
